@@ -1,0 +1,35 @@
+  first time with new folder and new file
+
+  
+
+  145  10-Sep-2023 11:27:13 git init
+
+  146  10-Sep-2023 11:27:20 git add .
+
+  147  10-Sep-2023 11:27:54 git commit -m "git push test"
+
+  148  10-Sep-2023 11:28:14 git branch -M main
+
+  149  10-Sep-2023 11:29:54 git remote add origin https://github.com/rakesh343outlook/GITPROJECT.git
+
+  150  10-Sep-2023 11:30:53 git push -u origin main
+
+ 
+
+alrady exist folder with new file 
+
+  151  10-Sep-2023 11:32:29 vim test
+
+  152  10-Sep-2023 11:32:49 git status
+
+  153  10-Sep-2023 11:33:01 ls
+
+  154  10-Sep-2023 11:33:35 git add .
+
+  155  10-Sep-2023 11:33:40 git status
+
+  156  10-Sep-2023 11:34:08 git commit - m "testing with new file"
+
+  157  10-Sep-2023 11:34:23 git commit -m "testing with new file"
+
+  158  10-Sep-2023 11:34:40 git push -u origin main
