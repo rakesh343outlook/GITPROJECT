@@ -1,0 +1,94 @@
+<!--Explanation:
+
+The HTML file contains the structure of the web page, including an input field for the user's guess, a submit button, and a message area.
+
+The CSS file provides styles to make the web page visually appealing.
+
+The JavaScript file generates a random number between 1 and 100 and checks if the user's guess matches the random number. 
+It provides feedback to the user based on their guess and disables the input field and submit button if the correct number is guessed.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 30%;
+            padding: 5px;
+            margin: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .message {
+            color: #f00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="text" id="guessInput">
+    <input type="submit" value="Submit Guess" id="guessSubmit">
+    <p class="message"></p>
+    <p>The random number is: <span id="randomNumberDisplay"></span></p>
+
+
+    <script>
+        // Generate a random number between 1 and 100
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Get references to HTML elements
+        const guessInput = document.getElementById('guessInput');
+        const guessSubmit = document.getElementById('guessSubmit');
+        const message = document.querySelector('.message');
+        const randomNumberDisplay = document.getElementById('randomNumberDisplay'); 
+
+        // Set the content of the random number display element
+        randomNumberDisplay.textContent = randomNumber;
+
+        // Function to check the user's guess
+        function checkGuess() {
+            const userGuess = parseInt(guessInput.value);
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = 'Please enter a valid number between 1 and 100.';
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                message.textContent = `Congratulations! You guessed the correct number: ${randomNumber}`;
+                message.style.color = 'green';
+                guessInput.disabled = true;
+                guessSubmit.disabled = true;
+            } else {
+                message.textContent = `Sorry, the correct number is not ${userGuess}. Try again.`;
+                message.style.color = 'red';
+            }
+
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+        // Attach the checkGuess function to the submit button's click event
+        guessSubmit.addEventListener('click', checkGuess);
+    </script>
+</body>
+</html>
